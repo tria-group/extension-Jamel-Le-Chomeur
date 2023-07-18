@@ -1,19 +1,19 @@
 {
     "manifest_version": 3,
     "author": "TrackZone",
-    "name": "Jamel Le Chomeur",
+    "name": "Jamel le chomeur",
     "icons": {
         "128": "image/happy-jamel.png"
     },
-    "description": "Jamel Le Chomeur - Extension Chrome",
+    "description": "Jamel le chomeur - Extension Chrome",
     "homepage_url": "https://www.twitch.tv/jamel_le_chomeur",
-    "version": "2.0.0",
+    "version": "2.0.2",
     "background": {
         "service_worker": "background.js",
         "type": "module"
     },
     "action": {
-        "default_title": "Jamel Le Chomeur",
+        "default_title": "Jamel le chomeur",
         "default_popup": "popup.html"
     },
     "permissions": ["background", "notifications"],
