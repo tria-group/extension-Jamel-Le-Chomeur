@@ -15,17 +15,17 @@ function createNotification(id, type, title, message, buttons, iconUrl) {
             iconUrl: iconUrl,
         };
     }
-    chrome.notifications.create(id, opt, function () {});
+    browser.notifications.create(id, opt, function () {});
 }
 
-chrome.notifications.onButtonClicked.addListener(function (e, b) {
+browser.notifications.onButtonClicked.addListener(function (e, b) {
     if (e === "notifLive") {
-        chrome.tabs.create({
+        browser.tabs.create({
             url: "https://www.twitch.tv/jamel_le_chomeur",
         });
     }
 
-    chrome.notifications.clear(e);
+    browser.notifications.clear(e);
 });
 
 const preview_url =
@@ -36,11 +36,10 @@ var notificated = false;
 
 const checkStatus = () => {
     fetch(preview_url).then((response) => {
-        console.log("notificated", notificated);
         if (response.redirected != true) {
             /*if (redirected != true) {
                 redirected = true;
-                chrome.tabs.create({
+                browser.tabs.create({
                     url: "https://www.twitch.tv/jamel_le_chomeur",
                 });
             }*/
@@ -63,7 +62,7 @@ const checkStatus = () => {
     });
 };
 
-chrome.runtime.onInstalled.addListener(() => {
+browser.runtime.onInstalled.addListener(() => {
     createNotification(
         "notifInstall",
         "basic",
@@ -74,7 +73,7 @@ chrome.runtime.onInstalled.addListener(() => {
     );
 });
 
-chrome.runtime.onStartup.addListener(() => {
+browser.runtime.onStartup.addListener(() => {
     checkStatus();
     setInterval(checkStatus, 15 * 1000);
 });
