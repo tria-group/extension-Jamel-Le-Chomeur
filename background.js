@@ -36,6 +36,7 @@ var notificated = false;
 
 const checkStatus = () => {
     fetch(preview_url).then((response) => {
+        console.log("notificated", notificated);
         if (response.redirected != true) {
             /*if (redirected != true) {
                 redirected = true;
@@ -73,4 +74,11 @@ chrome.runtime.onInstalled.addListener(() => {
     );
 });
 
-setInterval(checkStatus, 30 * 1000);
+chrome.runtime.onStartup.addListener(() => {
+    checkStatus();
+    setInterval(checkStatus, 15 * 1000);
+});
+
+setTimeout(() => {
+    notificated = false;
+}, 43200 * 1000);
