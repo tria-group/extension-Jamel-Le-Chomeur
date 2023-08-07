@@ -7,7 +7,7 @@
     },
     "description": "Jamel le chomeur - Extension Chrome",
     "homepage_url": "https://www.twitch.tv/jamel_le_chomeur",
-    "version": "2.0.2",
+    "version": "2.1.2",
     "background": {
         "service_worker": "background.js",
         "type": "module"
